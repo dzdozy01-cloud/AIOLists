@@ -123,7 +123,7 @@ async function fetchPosterFromRPDB(imdbId, rpdbApiKey, language = null) {
   }
   
   // Check if this is the free t0 API key which doesn't support language parameters
-  const isFreeT0Key = rpdbApiKey === 't0-free-rpdb';
+  const isFreeT0Key = rpdbApiKey.startsWith('t0-free-rpdb');
   const effectiveLanguage = isFreeT0Key ? null : language;
   
   const cacheKey = getPosterCacheKey(imdbId, rpdbApiKey, effectiveLanguage);

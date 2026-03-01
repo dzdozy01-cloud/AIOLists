@@ -756,7 +756,7 @@ async function applyRpdbPostersToSearchResults(results, userConfig) {
     }
     
     // Check if using free t0 key which doesn't support language parameters
-    const isFreeT0Key = userConfig.rpdbApiKey === 't0-free-rpdb';
+        const isFreeT0Key = userConfig.rpdbApiKey.startsWith('t0-free-rpdb');
     const effectiveLanguage = isFreeT0Key ? null : rpdbLanguage;
     
     const posterMap = await batchFetchPosters(imdbIds, userConfig.rpdbApiKey, effectiveLanguage);
